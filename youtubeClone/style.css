@@ -1,0 +1,264 @@
+/* 현제 웹페이지 디자인의 색상, 사이즈, 폰트사이즈의 변수를 정의한다. */
+/* 다음과 같이 정의할 시 디자인 요소를 변경할때 편리하게 할 수 있다. */
+:root {
+    /* Color */
+    --white-color: #fff;
+    --black-color: #140a00;
+    --blue-color: #045fd4;
+    --red-color: #ff0000;
+    --gray-dark-color: #909090;
+    --gray-light-color: #e0e0e0;
+
+    /* Size */
+    --padding: 12px;
+    --avatar-size: 36px;
+
+    /* Font Size */
+    --font-large: 18px;
+    --font-medium: 14px;
+    --font-small: 12px;
+    --font-micro: 10px;   
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Roboto;   
+}
+
+ul {
+    /* 리스트의 디스크 모양을 지워준다. */
+    list-style: none;
+}
+
+/* 버튼 모양을 변경 */
+button,
+button:focus {
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Header */
+    header {
+        display: flex;
+        justify-content: space-between;
+        padding: var(--padding);
+        background-color: var(--black-color);
+        color: var(--white-color);
+    }
+
+    /* 헤더 안에 폰트 사이즈 설정 */
+    header .logo {
+        font-size: var(--font-large);
+    }
+
+    header .logo i{
+        color: var(--red-color);
+    }
+
+    header .icons .fa-search {
+        margin-right: var(--padding);
+    }
+
+/* Video Player */
+    .player {
+        /* 스크롤을 내렸을 때 비디오를 고정시킨다. */
+        /* position: sticky; */
+        /* 포지션 스티키를 주면 어디에 고정되는지 설정한다. */
+        top: 0;
+        /* 비디오의 위치를 중앙으로 한다. */
+        text-align: center;
+        background-color: var(--black-color);
+    }
+
+    .player video {
+        /* 반응형(창크기를 변경)시 비디오도 같이 변경을 준다. */
+        width: 100%;
+        height: 100%;
+        /* 반응형으로 사이즈가 변경될 때 최대값을 준다 */
+        max-width: 1000px;
+    }
+
+/* Video Info */
+    body > .info {
+        padding: var(--padding);
+    }
+
+    .info .metadata .hashtags {
+        display: flex;
+        font-size: var(--font-small);
+        color: var(--blue-color);
+    }
+
+    .info .metadata .hashtags li {
+        margin-right: var(--padding);
+    }
+
+    .info .metadata .titleAndButton {
+        display: flex;
+    }
+
+    .info .metadata .titleAndButton .title {
+        font-size: var(--font-medium);
+        margin-right: var(--padding);
+    }
+
+    .info .metadata .titleAndButton .title .clamp {
+        /* 동영상 제목 타이틀이 길때 '...'으로 제한적으로 나타나게 한다. */
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+    
+    /* 동영상 제목 타이틀의 버튼 위치를 수정 */
+    .info .metadata .titleAndButton .moreBtn {
+        height: 100%;
+        transition: transform 300ms ease-in-out;
+    }
+
+    .info .metadata .titleAndButton .moreBtn.clicked {
+        transform: rotate(180deg);
+    }
+
+    .info .views {
+        font-size: var(--font-small);
+        color: var(--gray-dark-color);
+    }
+
+/* Action Buttons */
+    .info .actions {
+        /* 버튼을 플렉스(박스)로 지정 */
+        display: flex;
+        justify-content: space-around;
+        margin: var(--padding) 0;
+    }
+
+    .info .actions button {
+        display: flex;
+        /* 아이콘을 위로하고 텍스트를 밑으로 설정 */
+        flex-direction: column;
+        font-size: var(--font-small);
+        color: var(--gray-dark-color);
+    }
+
+    .info .actions button i {
+        margin: 0 auto;
+        /* calc()함수를 사용하여 패딩(16px)사이즈를 2와 나눈다. */
+        margin-bottom: calc(var(--padding) / 2);
+        font-size: 16px;
+    }
+
+    /* 버튼을 눌렀을때 파랑색으로 변경 예) 좋아요 눌렀을때 표시 */
+    .info .actions button i.active {
+        color: var(--blue-color);
+    }
+
+/* Channel Description */
+    .info .channel {
+        display: flex;
+        justify-content: space-between;
+        /* 채널의 보더(선)를 만들어 준다. */
+        border-top: 1px solid var(--gray-light-color);
+        border-bottom: 1px solid var(--gray-light-color);
+    }
+
+    /* 채널안에 메타데이터 부분 변경 */
+    .info .channel .metadata {
+        display: flex;
+        align-items: center;
+    }
+
+    /* 아바타 이미지  */
+    .info .channel .metadata img {
+        /* 이미지 크기를 설정 */
+        width: var(--avatar-size);
+        height: var(--avatar-size);
+        /* 아바타 사진을 원모양으로 한다. */
+        border-radius: 50%;
+    }
+
+    .info .channel .metadata .info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .info .channel .metadata .info .name {
+        font-size: var(--font-medium);
+    }
+
+    .info .channel .metadata .info .subscribers {
+        font-size: var(--font-small);
+        color: var(--gray-dark-color);
+    }
+
+    .info .channel .subscribe {
+        text-transform: uppercase;
+        color: var(--red-color);
+        font-size: var(--font-medium);
+    }
+
+    /* Up Next */
+    .upNext {
+        padding: 0 var(--padding);
+    }
+
+    .upNext > .title {
+        font-size: var(--font-medium);
+        color: var(--gray-dark-color);
+        margin-bottom: calc(var(--padding) / 2) ;
+    }
+
+    .upNext .item {
+        display: flex;
+        margin-top: var(--padding);
+    }
+
+    .upNext .item .img {
+        flex: 1 1 35%;
+        margin-right: var(--padding);
+    }
+
+    .upNext .item .img img   {
+        width: 100%;
+    }
+
+    .upNext .item .info {
+        flex: 1 1 60%
+    }
+
+    .upNext .item .moreBtn {
+        flex: 1 1 5%
+    }
+
+    .upNext .item .info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .upNext .item .info .title {
+        font-size: var(--font-small);
+    }
+
+    .upNext .item .info .name,
+    .upNext .item .info .views {
+        font-size: var(--font-micro);
+        color: var(--gray-dark-color);
+    }
+
+    infoAndUpNext {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media screen and (min-width: 768px) {
+        .infoAndUpNext {
+            flex-direction: row;
+            margin: var(--padding) 0;
+        }
+    }

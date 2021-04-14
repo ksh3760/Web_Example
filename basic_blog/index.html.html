@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<head>
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <style>
+        /* 초기화 */
+        * {margin: 0; padding: 0;}
+        body {font-family: sans-serif;}
+        li {list-style: none;}
+        a {text-decoration: none;}
+        img {border: 0;}
+        /* 헤더 */
+        #main_header {
+            width: 960px;
+            margin: 0 auto;
+            height: 160px;
+            position: relative;
+            /* 자손의 속성에 absolute 키워드를 적용하면 부모의 position 속성에 relative 키워드를 적용한다. */
+        }
+        #main_header > title {
+            position: absolute;
+            left: 20px; top: 30px;
+        }
+        #main_header > #main_gnb {
+            position: absolute;
+            right: 0; top: 0;
+        }
+        #main_header > #main_lnb {
+            position: absolute;
+            right: 0; bottom: 10px;
+        }
+        /* 타이틀 */
+        #title {font-family: 'Anton', sans-serif;}
+        /* 메뉴(1) */
+        #main_gnb > ul {overflow: hidden;}
+        #main_gnb > ul > li {float: left;}
+        #main_gnb > ul > li > a {
+            display: block;
+            padding: 2px 10px;
+            border: 1px solid black;
+        }
+        #main_gnb > ul > li > a:hover {
+            background-color: black;
+            color: white;
+        }
+        #main_gnb > ul > li:first-child > a {border-radius: 10px 0 0 10px;}
+        #main_gnb > ul > li:last-child > a {border-radius: 0 10px 10px 0;}
+        /* 메뉴(2) */
+        #main_lnb > ul {overflow: hidden;}
+        #main_lnb > ul > li {float: left;}
+        #main_lnb > ul > li > a {
+            display: block;
+            padding: 10px 20px;
+            border: 1px solid black;
+        }
+        #main_lnb > ul > li:first-child > a {border-radius: 10px 0 0 10px;}
+        #main_lnb > ul > li:last-child > a {border-radius: 0 10px 10px 0;}
+        /* 콘텐츠 */
+        #content {width: 960px; margin: 0 auto; overflow: hidden;}
+        #content > #main_section {float: left; width: 750px;}
+        #content > #main_aside {float: right; width: 200px;}
+        /* 본문 */
+        #main_section > article.main_article {
+            margin-bottom: 10px;
+            padding: 20px; border: 1px solid black;
+        }
+        /* 사이드 */
+        /* 1. input 태그는 보이지 않게 만듭니다
+        2. input 태그가 체크되어 있을 경우에는 뒤에 위치하는 div 태그를 보여 줍니다
+        3. input 태그가 체크되어 있지 않을 경우 뒤에 위치하는 div 태그를 보여 주지 않습니다 */
+        input:nth-of-type(1) {display: none;}
+        input:nth-of-type(1) ~ div:nth-of-type(1) {display: none;}
+        input:nth-of-type(1):checked ~ div:nth-of-type(1) {display: block;}
+
+        input:nth-of-type(2) {display: none;}
+        input:nth-of-type(2) ~ div:nth-of-type(2) {display: none;}
+        input:nth-of-type(2):checked ~ div:nth-of-type(2) {display: block;}
+
+        /* 탭 모양 구성 */
+        section.buttons {overflow: hidden;}
+        section.buttons > label {
+            display: block; float: left;
+            width: 100px; height: 30px;
+            line-height: 30px; text-align: center;
+            box-sizing: border-box; border: 1px solid black;
+            background: black; color: white;
+            }
+        input:nth-of-type(1):checked ~ section.buttons > label:nth-of-type(1) {
+            background: white;
+            color: black;
+        }
+        input:nth-of-type(2):checked ~ section.buttons > label:nth-of-type(2) {
+            background: white;
+            color: black;
+        }
+        /* 목록 */
+        .item {
+            overflow: hidden;
+            padding: 10px;
+            border: 1px solid black;
+            border-top: none;
+        }
+        .thumnail {float: left;}
+        .desctiption {float: left; margin-left: 10px;}
+        .desctiption > strong {
+            display: block;
+            width: 120px;
+            /* 글자 생략할 때 몰려 다니는 삼총사 */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        /* 푸터 */
+        #main_footer {
+            width: 960px; margin: 0 auto;
+            box-sizing: border-box;
+            padding: 10px; border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header id="main_header">
+        <div id="title">
+            <h1>HWANG</h1>
+            <h1>HTML + CSS BASIC</h1>
+        </div>
+        <nav id="main_gnb">
+            <!-- gnb = global nav bar -->
+            <ul>
+                <li><a href="#">Web</a></li>
+                <li><a href="#">Mobile</a></li>
+                <li><a href="#">Game</a></li>
+                <li><a href="#">Simulation</a></li>
+                <li><a href="#">Data</a></li>
+            </ul>
+        </nav>
+        <nav id="main_lnb">
+            <!-- lnb = local nav bar -->
+            <ul>
+            <li><a href="#">HTML5</a></li>
+            <li><a href="#">CSS3</a></li>
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">jQuery</a></li>
+            <li><a href="#">Node.js</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="content">
+        <section id="main_section">
+            <article class="main_article">
+            <h1>Main Article</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, culpa laudantium! Quisquam saepe repudiandae quasi voluptates, beatae quae optio velit quas enim delectus rerum omnis, maxime aliquam. Repellendus, tempore eaque.Quia doloremque blanditiis, tenetur esse, est repellat reprehenderit expedita accusantium maxime, optio aperiam quaerat dolorum eaque consectetur omnis dolores mollitia voluptate vel quis vitae quod. Neque, illum! Quibusdam, ab possimus?</p>
+            </article>
+            <article class="main_article">
+            <h1>Main Article</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, culpa laudantium! Quisquam saepe repudiandae quasi voluptates, beatae quae optio velit quas enim delectus rerum omnis, maxime aliquam. Repellendus, tempore eaque.Quia doloremque blanditiis, tenetur esse, est repellat reprehenderit expedita accusantium maxime, optio aperiam quaerat dolorum eaque consectetur omnis dolores mollitia voluptate vel quis vitae quod. Neque, illum! Quibusdam, ab possimus?</p>
+            </article>
+            <article class="main_article">
+            <h1>Main Article</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, culpa laudantium! Quisquam saepe repudiandae quasi voluptates, beatae quae optio velit quas enim delectus rerum omnis, maxime aliquam. Repellendus, tempore eaque.Quia doloremque blanditiis, tenetur esse, est repellat reprehenderit expedita accusantium maxime, optio aperiam quaerat dolorum eaque consectetur omnis dolores mollitia voluptate vel quis vitae quod. Neque, illum! Quibusdam, ab possimus?</p>
+            </article>
+        </section>
+        <aside id="main_aside">
+            <input id="first" type="radio" name="tab" checked="checked" />
+            <input id="second" type="radio" name="tab" />
+            <section class="buttons">
+                <label for="first">First</label>
+                <label for="second">Second</label>
+            </section> 
+            <div class="tab_item">
+                <ul>
+                    <li class="item"><a href="#">
+                        <div class="thumnail">
+                            <img src="http://placehold.it/30x30">
+                        </div>
+                        <div class="desctiption">
+                            <strong>HTML5 Canvas</strong>
+                            <p>2021-01-15</p>
+                        </div></a></li>
+                        <li class="item"><a href="#">
+                            <div class="thumnail">
+                                <img src="http://placehold.it/30x30">
+                            </div>
+                            <div class="desctiption">
+                                <strong>HTML5 Semantic Web</strong>
+                                <p>2021-01-15</p>
+                            </div></a></li>
+                            <li class="item"><a href="#">
+                                <div class="thumnail">
+                                    <img src="http://placehold.it/30x30">
+                                </div>
+                                <div class="desctiption">
+                                    <strong>HTML5 Video</strong>
+                                    <p>2021-01-15</p>
+                                </div></a></li>
+                                <li class="item"><a href="#">
+                                    <div class="thumnail">
+                                        <img src="http://placehold.it/30x30">
+                                    </div>
+                                    <div class="desctiption">
+                                        <strong>HTML5 Audio</strong>
+                                        <p>2021-01-15</p>
+                                    </div></a></li>
+                </ul>
+            </div>
+            <div class="tab_item">
+                <ul>
+                    <li class="item"><a href="#">
+                        <div class="thumnail">
+                            <img src="http://placehold.it/30x30">
+                        </div>
+                        <div class="desctiption">
+                            <strong>CSS3 Box</strong>
+                            <p>2021-01-15</p>
+                        </div></a></li>
+                        <li class="item"><a href="#">
+                            <div class="thumnail">
+                                <img src="http://placehold.it/30x30">
+                            </div>
+                            <div class="desctiption">
+                                <strong>CSS3 Border</strong>
+                                <p>2021-01-15</p>
+                            </div></a></li>
+                            <li class="item"><a href="#">
+                                <div class="thumnail">
+                                    <img src="http://placehold.it/30x30">
+                                </div>
+                                <div class="desctiption">
+                                    <strong>CSS3 Animation</strong>
+                                    <p>2021-01-15</p>
+                                </div></a></li>
+                                <li class="item"><a href="#">
+                                    <div class="thumnail">
+                                        <img src="http://placehold.it/30x30">
+                                    </div>
+                                    <div class="desctiption">
+                                        <strong>CSS3 Transition</strong>
+                                        <p>2021-01-15</p>
+                                    </div></a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <footer id="main_footer">
+        <h3>HTML5 + CSS3 Basic</h3>
+        <address>Website Layout Basic</address>
+    </footer>
+</body>
+</html>

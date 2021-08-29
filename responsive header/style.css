@@ -9,6 +9,7 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+a {
     /* a 태그의 밑줄을 없애 준다. */
     text-decoration: none;
     color: var(--text-color);

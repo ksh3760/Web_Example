@@ -1,0 +1,109 @@
+:root {
+    --text-color: #f0f4f5;
+    --background-color: #292a2c;
+    --accent-color: #00c3ff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+    /* a 태그의 밑줄을 없애 준다. */
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.navbar {
+    display: flex;
+    /* 중간에 빈 공간을 넣기 */
+    justify-content: space-between;
+    /* 수직적으로 중간으로 배치 */
+    align-items: center;
+    background-color: var(--background-color);
+    /* padding : 위에는 8px 양 옆은 12px */
+    padding: 8px 12px;
+}
+
+.navbar_logo {
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+.navbar_logo i {
+    color: var(--accent-color);
+}
+
+.navbar_menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+.navbar_menu li {
+    padding: 8px 12px;
+}
+
+.navbar_menu li:hover {
+    background-color: var(--accent-color);
+    border-radius: 4px;
+}
+
+.navbar_icons {
+    list-style: none;
+    color: var(--text-color);
+    display: flex;
+    padding-left: 0;
+}
+
+.navbar_icons li {
+    padding: 8px 12px;
+}
+
+.navbar_toggleBtn {
+    /* toggle 버튼은 화면이 작아질때만 나오게 한다. */
+    display: none;
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: var(--accent-color);
+}
+
+/* 레이아웃을 반응형으로 만들때 @media 사용한다. */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+    }
+
+    .navbar_menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar_menu li {
+        width: 100%;
+        text-align: center;   
+    }
+
+    .navbar_icons {
+        display: none;
+        justify-content: center;
+        /* justify-content: center를 했음에도 중앙으로 오지 않는것은 
+        너비가 100%가 아니기 떄문에 width: 100%를 해준다.  */
+        width: 100%;
+    }
+
+    .navbar_toggleBtn {
+        display: block;
+    }
+
+    /* navbar_menu.active 이거나 navbar_icons.active 일때 display: flex*/
+    .navbar_menu.active,
+    .navbar_icons.active {
+        display: flex;
+    }
+}

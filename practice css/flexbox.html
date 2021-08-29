@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+        참고 사이트 : https://developer.mozilla.org/ko/docs/Web/CSS/flex
+                     https://css-tricks.com/
+                     https://material.io/resources/color/#!/?view.left=0&view.right=0
+    -->
+
+    <style>
+        .container {
+            background: beige;
+            
+            /* 100%으로 하게 될 경우 html과 body태그도 스타일을 100%로 해줘야한다. */
+            height: 100vh;
+
+            /* flex */
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap; /* 기본값은 nowrap이다. 컨테이너 내에 item을 랩핑 안하겠다는 뜻이다. 만약 wrap을 하면 item이 다음 라인으로 넘어 간다. */
+        
+            flex-flow: column nowrap; /* 위의 flex-direction과 flex-wrap을 한줄에 작성할 수 있다.*/
+        
+            justify-content: flex-start; /* 컨텐츠를 어떻게 배치할지를 정한다. 기본(flex-start)이 왼쪽부터 배치*/
+            justify-content: space-around; /* 아이템 사이에 공간*/
+        
+            align-items: center; /* 아이템 위치를 지정한다.*/
+        }
+
+        .item {
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+
+            flex-grow: 0;   /* 아이템이 늘어나거나 줄어들 수 있게 설정한다.*/
+            flex-shrink: 1; /* 아이템이 줄어들때 얼마나 줄어드는지 설정한다.*/
+            flex-basis: auto; /* 아이템이 공간을 얼마나 차지하는지 세부적으로 명시, 기본이 auto*/
+        }
+
+        .item1 {
+            background: red;
+            align-self: flex-start; /* 아이템 하나만 특별하게 배치할때 사용 */
+        }
+        
+        .item2 {
+            background: orange;
+        }
+
+        .item3 {
+            background: yellow;
+        }
+        
+        .item4 {
+            background:green;
+        }
+        
+        .item5 {
+            background: blue;
+        }
+        
+        .item6 {
+            background: navy;
+        }
+        
+        .item7 {
+            background: violet;
+        }
+        
+        .item8 {
+            background: purple;
+        }
+        
+        .item9 {
+            background: gray;
+        }
+        
+        .item10 {
+            background: black;
+        }
+    </style>
+
+    <div class="container">
+        <div class="item item1">1</div>
+        <div class="item item2">2</div>
+        <div class="item item3">3</div>
+        <div class="item item4">4</div>
+        <div class="item item5">5</div>
+        <div class="item item6">6</div>
+        <div class="item item7">7</div>
+        <div class="item item8">8</div>
+        <div class="item item9">9</div>
+        <div class="item item10">10</div>
+    </div>
+</body>
+</html>

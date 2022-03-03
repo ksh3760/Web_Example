@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data binding</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="textInput" oninput="textBind()">
+        <p id="textBinding">TEXT : </p>    
+    </div>
+
+    <script>
+        function textBind() {
+            var a = document.getElementById("textInput").value;
+            document.getElementById("textBinding").innerHTML = "TEXT : " + a;
+        }
+    </script>
+</body>
+</html>
